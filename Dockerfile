@@ -1,7 +1,11 @@
-FROM python:latest
+FROM node:latest
 
 WORKDIR /app
 
-COPY app.py .
+COPY package.json .
 
-CMD ["python", "app.py"]
+RUN npm install
+
+COPY app.js .
+
+CMD ["npm", "start"]
